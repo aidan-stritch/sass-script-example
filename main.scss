@@ -1,0 +1,71 @@
+/*function that will convert px to em
+
+@function pxToEm($value, $base){
+    @return ($value/$base) + em;
+}
+
+h1{
+    font-size: pxToEm(32,16);
+}
+*/
+
+/*declare variables for blue, red, green, black and white and assign the colours to them*/
+$blue: #0997d3;
+$red: #e84610;
+$green: #bada55;
+$black: #000000; 
+$white: #ffffff;
+
+/*declare variables for width and height and assign values to them*/
+$width: 300px;
+$height: 500px;
+
+
+/*declare a list of the colors and populate the list with the variables above
+$colorsList: $blue, $red, $green, $black, $white;
+*/
+
+/*declare a map object as an alternative to lists*/
+$colors:(
+    red: #e84610,
+    green: #bada55,
+    black: #000000
+);
+
+@each $key, $value in $colors{
+    .item-#{$key}{
+        background-color:$value;
+    }
+    
+}
+
+
+body{
+    background-color: $black;
+}
+
+div{
+    width: $width;
+    height: $height;
+    border: 1px solid $black;
+}
+
+h1{
+    color:$white;
+}
+
+/*create a variable and pass it to a css class*/
+
+$class: container;
+
+div.#{$class} {
+    background-color: orange;
+}
+
+
+
+
+/*dont forget to tell the terminal to watch the main.scss file so it compiles this to the main.css file 
+sass --watch main.scss
+this tells it to constantly watch this file and any changes will automatically be compiled and added to the main.css file
+*/
